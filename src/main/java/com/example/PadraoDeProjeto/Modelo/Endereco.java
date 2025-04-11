@@ -1,7 +1,8 @@
 package com.example.PadraoDeProjeto.Modelo;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
+@Entity
 public class Endereco {
     @Id
     private String cep;
@@ -13,6 +14,9 @@ public class Endereco {
     private String estado;
     private String regiao;
     private String ddd;
+
+    public Endereco() {
+    }
 
     public String getCep() {
         return cep;
