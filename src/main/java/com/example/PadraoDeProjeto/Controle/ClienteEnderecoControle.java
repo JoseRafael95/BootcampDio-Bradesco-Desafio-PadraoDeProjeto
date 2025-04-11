@@ -34,7 +34,7 @@ public class ClienteEnderecoControle {
         servico.atualizar(id,cliente);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id){
         servico.deletar(id);
     }

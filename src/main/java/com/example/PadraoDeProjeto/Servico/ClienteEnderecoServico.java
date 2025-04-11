@@ -41,19 +41,17 @@ public class ClienteEnderecoServico {
         clienteRepositorio.save(cliente);
     }
 
-    public void atualizar(Long id, Cliente cliente){
-        if(clienteRepositorio.existsById(id)){
-            cliente.setId(id);
-            inserir(cliente);
-        }
+    public void atualizar(Long id, Cliente cliente) {
+        Optional<Cliente> clientePesquisa = clienteRepositorio.findById(id);
+        Cliente clienteExistente = clientePesquisa.get();
+        clienteExistente.setNome(cliente.getNome());
+        clienteExistente.setEndereco(cliente.getEndereco());
+        clienteRepositorio.save(clienteExistente);
     }
+
 
     public void deletar(Long id){
         clienteRepositorio.deleteById(id);
     }
-
-
-
-
 
 }
